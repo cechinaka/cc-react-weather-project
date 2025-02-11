@@ -3,7 +3,10 @@ import './App.css';
 export default function App() {
   return (
     <div className="App">
-      Weather Application
+      <div className='container'>
+        <h1>Weather Application</h1>
+      
+      </div>
     </div>
   );
 }
