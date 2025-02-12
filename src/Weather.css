@@ -28,3 +28,20 @@
     border-color: rgb(180, 168, 191);
     margin-top: 2px;
 }
+
+.weatherIcon {
+    line-height: 60px;
+    position: relative;
+    vertical-align: middle;
+}
+
+.temperatureValue {
+    font-size: 60px;
+    line-height: 60px;
+}
+
+.temperatureUnit {
+    font-size: 20px;
+    position: relative;
+    top: -30px;
+}

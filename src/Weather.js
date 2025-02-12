@@ -23,8 +23,9 @@ export default function Weather() {
 
             <div className="row">
                 <div className="col-6">
-                    <img src="" alt="Mostly Cloudy" />
-                    {" "}6°F
+                    <img className="weatherIcon" src="" alt="Mostly Cloudy" />
+                    {" "}<span className="temperatureValue">6</span>
+                    <span className="temperatureUnit">°F</span>
                 </div>
                <div className="col-6">
                 <ul>
