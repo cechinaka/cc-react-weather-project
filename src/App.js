@@ -6,9 +6,9 @@ export default function App() {
   return (
     <div className="App">
       <div className='container'>
-        <h1>Weather Application</h1>
+        <h1 className="header">What's the Weather?</h1>
         <Weather />
-        <footer>
+        <footer className="footer">
           This project was coded by {" "}
           <a href="https://github.com/cechinaka" target="_blank" rel="noreferrer">
           Christie Chinaka</a> and is on {" "}
