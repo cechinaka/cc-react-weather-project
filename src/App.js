@@ -1,6 +1,5 @@
 import React from "react";
 import Weather from "./Weather.js";
-import axios from "axios";
 
 import './App.css';
 
