@@ -30,9 +30,8 @@
 }
 
 .weatherIcon {
-    line-height: 60px;
     position: relative;
-    vertical-align: middle;
+    top: -15px;
 }
 
 .temperatureValue {
