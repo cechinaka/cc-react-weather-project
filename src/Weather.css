@@ -5,7 +5,9 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding: 16px;
     margin: 30px auto;
+    margin-left: 25px;
     border-radius: 8px;
+    text-align: center;
 }
 
 .Weather ul {
@@ -32,15 +34,28 @@
 .weatherIcon {
     position: relative;
     top: -15px;
+    left: 30px;
 }
 
 .temperatureValue {
     font-size: 60px;
     line-height: 60px;
+    position: relative;
+    left: 20px;
 }
 
 .temperatureUnit {
     font-size: 20px;
     position: relative;
     top: -30px;
+    left: 20px;
+}
+
+.unitsM, .unitsI {
+    color: rgb(44, 55, 68);
+    font-style: italic;
+}
+
+.unitsAll {
+    text-align: center;
 }

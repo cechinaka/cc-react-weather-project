@@ -36,7 +36,7 @@ export default function WeatherUnit(props) {
                     </ul>
                 </div>
             </div>
-            <p>Imperial | <a href="/" onClick={convertToMetric}>Metric</a></p>
+            <p className="unitsAll">Imperial | <a href="/" onClick={convertToMetric} className="unitsM">Metric</a></p>
         </div>
     ); 
     } else {
@@ -64,7 +64,7 @@ export default function WeatherUnit(props) {
                         </ul>
                     </div>
                 </div>
-                <p><a href="/" onClick={showImperial}>Imperial</a> | Metric</p>
+                <p className="unitsAll"><a href="/" onClick={showImperial} className="unitsI">Imperial</a> | Metric</p>
             </div>
         )
     }
