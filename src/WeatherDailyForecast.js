@@ -7,13 +7,10 @@ export default function WeatherDailyForecast(props) {
     const [loaded, setLoaded] = useState(false);
     const [forecastData, setForecastData] = useState(null);
 
-    let data = props.dailyForecastData;
-
     useEffect(() => {
         setLoaded(false);
     }, [props.locationName.city]);
   
-
     function showForecast(response) {
         setForecastData(response.data.daily);
         setLoaded(true);
@@ -24,19 +21,19 @@ export default function WeatherDailyForecast(props) {
             <div className="WeatherDailyForecast">
                 <h3>Weather Forecast:</h3>
                 <br />
-            <div className="row">
-                {forecastData.map(function (forecastData, index) {
-                    if (index < 5) {
-                    return (
-                        <div className="col" key={index}>
-                            <ForecastDay forecastData={forecastData} />
-                            <p>{data}</p>
-                        </div>
-                    );
-                }
-                })}
+                <div className="row">
+                    {forecastData.map(function (forecastData, index) {
+                        if (index < 5) {
+                            return (
+                                <div className="col" key={index}>
+                                    <ForecastDay forecastData={forecastData} />
+                                </div>
+                            );
+                            }
+                        }                  
+                    )}
+                </div>
             </div>
-        </div>
         );
 
     } else {
