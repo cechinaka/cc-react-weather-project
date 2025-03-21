@@ -19,16 +19,21 @@ export default function WeatherDailyForecast(props) {
     }
 
     if (loaded) {
-
         return (
             <div className="WeatherDailyForecast">
                 <h3>Weather Forecast:</h3>
                 <h5>{fCity}, <small>{fCountry}</small></h5>
             <div className="row">
-                <div className="col">
-                    <ForecastDay forecastData={forecastData[0]} />
-                    <p>{data}</p>
-                </div>
+                {forecastData.map(function (forecastData, index) {
+                    if (index < 5) {
+                    return (
+                        <div className="col" key={index}>
+                            <ForecastDay forecastData={forecastData} />
+                            <p>{data}</p>
+                        </div>
+                    );
+                }
+                })}
             </div>
         </div>
         );
