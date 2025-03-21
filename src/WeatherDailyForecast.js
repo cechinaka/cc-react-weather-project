@@ -6,11 +6,12 @@ import ForecastDay from "./ForecastDay";
 export default function WeatherDailyForecast(props) {
     const [loaded, setLoaded] = useState(false);
     const [forecastData, setForecastData] = useState(null);
-    let fCity = props.locationName.city;
-    let fCountry = props.locationName.country;
+
     let data = props.dailyForecastData;
 
-    useEffect(() => {}, []);
+    useEffect(() => {
+        setLoaded(false);
+    }, [props.locationName.city]);
   
 
     function showForecast(response) {
@@ -22,7 +23,7 @@ export default function WeatherDailyForecast(props) {
         return (
             <div className="WeatherDailyForecast">
                 <h3>Weather Forecast:</h3>
-                <h5>{fCity}, <small>{fCountry}</small></h5>
+                <br />
             <div className="row">
                 {forecastData.map(function (forecastData, index) {
                     if (index < 5) {
