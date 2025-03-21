@@ -1,35 +1,29 @@
 import React, {useState} from "react";
-import "./Weather.css";
 import WeatherInfo from "./WeatherInfo";
 import WeatherDailyForecast from "./WeatherDailyForecast";
 import axios from "axios";
+import "./Weather.css";
 
 
 export default function Weather(props) {
-
     const [weatherData, setWeatherData] = useState({ready: false});
     const [city, setCity] = useState (props.defaultCity);
 
     function showWeather (response) {
-        console.log(response);
         setWeatherData({
             ready: true,
-            city: response.data.city,
+            coordinates: response.data.coordinates,
+            temperature: Math.round(response.data.temperature.current),
+            humidity: Math.round(response.data.temperature.humidity),
             dateTime: new Date(response.data.time*1000),
             description: response.data.condition.description,
             icon: response.data.condition.icon_url,
-            temperature: Math.round(response.data.temperature.current),
-            humidity: Math.round(response.data.temperature.humidity),
             wind: Math.round(response.data.wind.speed),
+            city: response.data.city,
+            country: response.data.country,
         });
     }
-
-    function search() {
-        const apiKey = `b8bt1eedc53a49e91cf7bb6aob435022`;
-        let url = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=imperial`;
-        axios.get(url).then(showWeather);
-    }
-
+    
     function handleSubmit(event) {
         event.preventDefault();
         search();
@@ -39,11 +33,17 @@ export default function Weather(props) {
         setCity(event.target.value);
     }
 
-    if (weatherData.ready) {
+    function search() {
+        const apiKey = `b8bt1eedc53a49e91cf7bb6aob435022`;
+        let url = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=imperial`;
+        axios.get(url).then(showWeather);
+    }
 
+
+    if (weatherData.ready) {
     return (
         <div className="Weather">
-            <form onSubmit={handleSubmit}>
+            <form className="weatherForm" onSubmit={handleSubmit}>
                 <div className="row">
                     <div className="col-9">
                         <input type="search" placeholder="Enter a city" className="searchBar w-100" autoFocus="on" onChange={updateCity} />
@@ -54,17 +54,17 @@ export default function Weather(props) {
                 </div>
             </form>
             <WeatherInfo data={weatherData} />
-            <WeatherDailyForecast forecastCity={weatherData.city} />
+            <WeatherDailyForecast locationName={weatherData} cityCoordinates={weatherData.coordinates} />
 
         </div>
     );
-} else {
+    } else {
     
-    search();
-    
-    return (
-    <div>
-        <p>Loading...</p>
-    </div>);
-}
+        search();
+        
+        return (
+            <div>
+                <p>Loading...</p>
+            </div>);
+        }
 }
