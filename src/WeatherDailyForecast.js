@@ -20,6 +20,7 @@ export default function WeatherDailyForecast(props) {
         return (
             <div className="WeatherDailyForecast">
                 <h3>Weather Forecast:</h3>
+                <p><em>(Imperial only)</em></p>
                 <br />
                 <div className="row">
                     {forecastData.map(function (forecastData, index) {
