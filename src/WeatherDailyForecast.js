@@ -31,8 +31,7 @@ export default function WeatherDailyForecast(props) {
                                 </div>
                             );
                             }
-                        }                  
-                    )}
+                    return null;})}
                 </div>
             </div>
         );
